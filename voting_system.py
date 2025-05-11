@@ -36,19 +36,83 @@ if __name__ == "__main__":
     # Poll for messages from the Kafka topic
     try:
         while True:
+            # Poll for a message from the Kafka topic
             message = consumer.poll(1.0)  # Wait for a message for 1 second
+            # If no message is received, continue polling
             if message is None:
                 continue
-            if message.error():
+            # If an error occurs, raise an exception
+            elif message.error():
                 if message.error().code() == KafkaError._PARTITION_EOF:
                     continue
                 else:
                     raise KafkaException(message.error())
+            # If a message is received, process it
+            # Check if the message is a valid JSON object
             else:
+                # Decode the message value and load it as a JSON object
                 voter = json.loads(message.value().decode('utf-8')) 
+                # Check if the voter has already voted
                 chosen_candidate = random.choice(candidate)
-                vote = voter | chosen_candidate | {"Voting_time": datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'voted': 1}
-                print(vote)
+
+                # Check if the voter has already voted
+                cursor.execute("SELECT COUNT(*) FROM VOTING WHERE voter_id = %s", (voter["voter_id"],))
+                vote_count = cursor.fetchone()[0]
+                if vote_count > 0:
+                    print(f"Voter {voter['voter_id']} has already voted.")
+                    continue
+
+                # Check if the candidate is valid
+                cursor.execute("SELECT COUNT(*) FROM CANDIDATES_REGISTRATION WHERE candidate_id = %s", (chosen_candidate["candidate_id"],))
+                candidate_count = cursor.fetchone()[0]
+                if candidate_count == 0:
+                    print(f"Candidate {chosen_candidate['candidate_id']} is not valid.")
+                    continue
+
+                # Check if the voter is valid
+                cursor.execute("SELECT COUNT(*) FROM VOTER_REGISTRATION WHERE voter_id = %s", (voter["voter_id"],))
+                voter_count = cursor.fetchone()[0]
+                if voter_count == 0:
+                    print(f"Voter {voter['voter_id']} is not valid.")
+                    continue
+
+                # Check if the voter has already voted
+                cursor.execute("SELECT COUNT(*) FROM VOTING WHERE voter_id = %s", (voter["voter_id"],))
+                vote_count = cursor.fetchone()[0]
+                if vote_count > 0:
+                    print(f"Voter {voter['voter_id']} has already voted.")
+                    continue
+
+                vote = voter | chosen_candidate | {"Voting_time": datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'vote': 1}
+                
+                # Insert the vote into the database and produce it to Kafka
+                try:
+                    print(f"Vote for voter {vote['voter_id']} is being processed...")
+                    # Insert the vote into the database
+                    cursor.execute(
+                        """INSERT INTO VOTING (voter_id, candidate_id, voting_time, vote) 
+                        VALUES (%s, %s, %s, %s)""",
+                        (vote["voter_id"], vote["candidate_id"], vote["Voting_time"], vote["vote"])
+                    )
+                    # Commit the transaction
+                    database_connection.commit()
+                    print(f"Vote for voter {vote['voter_id']} has been successfully inserted into the database.")
+                
+                    # Produce the vote to Kafka before committing to the database
+                    producer.produce(
+                        topic='votes_topic',
+                        key=str(vote["voter_id"]),
+                        value=json.dumps(vote),
+                        on_delivery=delivery_report
+                    )
+                    producer.poll(0)  # Poll the producer to handle delivery reports
+                    # Flush the producer to ensure all messages are sent
+                    producer.flush()  # Ensure the message is sent to Kafka
+                    print(f"Vote for voter {vote['voter_id']} has been successfully inserted into the database and produced to Kafka.")
+
+                except Exception as e:
+                    print(f"Error inserting vote for voter {vote['voter_id']}: {e}")
+
 
     except Exception as e:
         print(f"Error: {e}")
