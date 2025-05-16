@@ -3,25 +3,26 @@ from confluent_kafka import SerializingProducer, KafkaError, KafkaException, Con
 import simplejson as json
 from main import delivery_report
 import random
-from datetime import datetime
+from datetime import datetime, timezone
+import time
+
+# Create a Kafka consumer
+consumer = Consumer({'bootstrap.servers': 'localhost:9092'} 
+                    | {'group.id': 'voting_group', 
+                    'auto.offset.reset': 'earliest', 
+                    'enable.auto.commit': False
+                    })
+
+# Create a Kafka producer
+producer = SerializingProducer({'bootstrap.servers': 'localhost:9092'})
+
 if __name__ == "__main__":
-
-    # Create a Kafka consumer and producer
-    consumer = Consumer({'bootstrap.servers': 'localhost:9092'} 
-                        | {'group.id': 'voting_group', 
-                        'auto.offset.reset': 'earliest', 
-                        'enable.auto.commit': False
-                        })
-    # Create a Kafka producer
-    producer = SerializingProducer({'bootstrap.servers': 'localhost:9092'})
-    
-
     # Connect to the PostgreSQL database
     database_connection = psycopg2.connect('host=localhost dbname=Election_Database user=postgres password=postgres')
     cursor = database_connection.cursor()
 
     # Fetch voter details from the database
-    candidate_query = cursor.execute("""SELECT row_to_json(columns) FROM (SELECT * FROM CANDIDATES_REGISTRATION) columns; """)
+    cursor.execute("""SELECT row_to_json(columns) FROM (SELECT * FROM CANDIDATES_REGISTRATION) columns; """)
     
     candidate = [candidate[0] for candidate in cursor.fetchall()]
     
@@ -31,7 +32,7 @@ if __name__ == "__main__":
     else:
         print(candidate)
 
-    Consumer.subscribe(['voter_registration'])
+    consumer.subscribe(['voter_registration'])
 
     # Poll for messages from the Kafka topic
     try:
@@ -56,7 +57,7 @@ if __name__ == "__main__":
                 chosen_candidate = random.choice(candidate)
 
                 # Check if the voter has already voted
-                cursor.execute("SELECT COUNT(*) FROM VOTING WHERE voter_id = %s", (voter["voter_id"],))
+                cursor.execute("SELECT COUNT(*) FROM VOTES_REGISTRATION WHERE voter_id = %s", (voter["voter_id"],))
                 vote_count = cursor.fetchone()[0]
                 if vote_count > 0:
                     print(f"Voter {voter['voter_id']} has already voted.")
@@ -76,21 +77,15 @@ if __name__ == "__main__":
                     print(f"Voter {voter['voter_id']} is not valid.")
                     continue
 
-                # Check if the voter has already voted
-                cursor.execute("SELECT COUNT(*) FROM VOTING WHERE voter_id = %s", (voter["voter_id"],))
-                vote_count = cursor.fetchone()[0]
-                if vote_count > 0:
-                    print(f"Voter {voter['voter_id']} has already voted.")
-                    continue
-
-                vote = voter | chosen_candidate | {"Voting_time": datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'vote': 1}
+                
+                vote = voter | chosen_candidate | {"Voting_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'vote': 1}
                 
                 # Insert the vote into the database and produce it to Kafka
                 try:
                     print(f"Vote for voter {vote['voter_id']} is being processed...")
                     # Insert the vote into the database
                     cursor.execute(
-                        """INSERT INTO VOTING (voter_id, candidate_id, voting_time, vote) 
+                        """INSERT INTO VOTES_REGISTRATION (voter_id, candidate_id, voting_time, vote) 
                         VALUES (%s, %s, %s, %s)""",
                         (vote["voter_id"], vote["candidate_id"], vote["Voting_time"], vote["vote"])
                     )
@@ -102,7 +97,7 @@ if __name__ == "__main__":
                     producer.produce(
                         topic='votes_topic',
                         key=str(vote["voter_id"]),
-                        value=json.dumps(vote),
+                        value=json.dumps(vote), # Convert the vote to JSON format
                         on_delivery=delivery_report
                     )
                     producer.poll(0)  # Poll the producer to handle delivery reports
@@ -113,13 +108,8 @@ if __name__ == "__main__":
                 except Exception as e:
                     print(f"Error inserting vote for voter {vote['voter_id']}: {e}")
 
-
+            time.sleep(1)
     except Exception as e:
         print(f"Error: {e}")
-    finally:        
-        # Close the consumer and producer
-        consumer.close()
-        producer.flush()
-        database_connection.close()
 
 
