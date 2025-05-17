@@ -1,0 +1,10 @@
+# Dockerfile.airflow-dbt
+FROM apache/airflow:2.9.1-python3.10
+
+RUN pip install --no-cache-dir \
+      dbt-bigquery==1.7.* \
+      google-cloud-bigquery \
+      google-auth \
+      google-cloud-storage
+
+ENV PATH="/root/.local/bin:${PATH}"

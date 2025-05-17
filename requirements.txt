@@ -1,1 +1,7 @@
-pip install requests psycopg2-binary confluent_kafka simplejson requests pyspark
+pip install requests psycopg2-binary confluent_kafka simplejson requests pyspark dbt-bigquery
+pip install apache-airflow --no-cache-dir
+wsl --install
+
+#$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\gcp_key.json"
+# docker build -f Dockerfile.airflow-dbt -t airflow-dbt:latest .
+#docker exec -it airflow airflow users reset-password --username admin --password admin123

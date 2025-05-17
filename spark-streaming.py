@@ -8,16 +8,19 @@ from pyspark.sql import SparkSession
 
 
 if __name__ == "__main__":
-    print(pyspark.__version__) #3.5.5
-    spark = (SparkSession.builder
-            .appName("Voting_Data_Stream_pipeline") #name of the application
-            .master("local[*]") # Use local Spark execution with all available cores
-            .config("spark.jars.packages","org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5")
-            .config("spark.jars", "C:\\Users\\oluwa\\Desktop\\Project\\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\\postgresql-42.7.5.jar")
-            .config("spark.sql.adaptive.enabled", "false") # Disable Adaptive Query Execution
-            .getOrCreate()) # Create a Spark session
+    #print(pyspark.__version__) #3.5.5
+    spark = (
+    SparkSession.builder
+      .appName("Data_Stream_pipeline")
+      .master("local[*]")
+       .config(
+          "spark.jars.packages","org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5,""com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.35.0")
+      .config("spark.jars",r"C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\postgresql-42.7.5.jar")
+      .config("spark.sql.adaptive.enabled", "false")
+      .getOrCreate()
+)
     
-
+ 
     #deserialize the data from the kafka topic votes_topic
     vote_schema = StructType([
     StructField("voter_id", StringType(), True),
@@ -58,11 +61,20 @@ if __name__ == "__main__":
     .select(from_json(col("value"), vote_schema).alias("data")) \
     .select("data.*")
 
-    
-    query = votes_df.writeStream \
-    .format("console") \
-    .outputMode("append") \
-    .option("truncate", False) \
-    .start()
+    def write_to_bq(batch_df, epoch_id):
+        (batch_df
+            .write.format("bigquery")
+            .option("table", "raw_data.raw_vote_events")     # dataset.table
+            .option("writeMethod", "direct")                 # Use Storage Write API
+            .option("parentProject", "data-stream-pipeline") # 👈 Correct key
+            .mode("append")
+            .save())
 
-    query.awaitTermination()
+
+    (votes_df
+    .writeStream
+    .outputMode("append")
+    .foreachBatch(write_to_bq)
+    .option("checkpointLocation", r"C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\checkpoints\checkpoint1")
+    .start()
+    .awaitTermination())

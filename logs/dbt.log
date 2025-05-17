@@ -1,0 +1,371 @@
+[0m12:51:55.394593 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F88FE3ABA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F88DB02990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F890DEBED0>]}
+
+
+============================== 12:51:55.400359 | ab6d2db6-3e4c-47b9-a28b-68b637c5ea05 ==============================
+[0m12:51:55.400359 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:51:55.402709 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt init data_stream_pipeline_dbt', 'send_anonymous_usage_stats': 'True'}
+[0m12:51:55.424270 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse logging event dictionary. Failed to parse dir field: expected string or bytes-like object, got 'WindowsPath'.. Dictionary: {'dir': WindowsPath('C:/Users/oluwa/.dbt')}
+[0m12:51:55.424751 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m12:51:55.426922 [debug] [MainThread]: Starter project path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Lib\site-packages\dbt\include\starter_project
+[0m12:51:55.455535 [info ] [MainThread]: 
+Your new dbt project "data_stream_pipeline_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:51:55.456327 [info ] [MainThread]: Setting up your profile.
+[0m12:54:51.296621 [info ] [MainThread]: Profile data_stream_pipeline_dbt written to C:\Users\oluwa\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m12:54:51.297990 [debug] [MainThread]: Command `dbt init` succeeded at 12:54:51.297852 after 176.07 seconds
+[0m12:54:51.298337 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F8BF027E10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F890CF5130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F8BF035260>]}
+[0m12:54:51.298678 [debug] [MainThread]: Flushing usage events
+[0m12:54:51.727888 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:55:20.948225 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E56CD9ABA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E56AA6A990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E56DD4BED0>]}
+
+
+============================== 12:55:20.952068 | 82243639-4e1b-46af-95c9-2a8895c7b5dd ==============================
+[0m12:55:20.952068 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:55:20.952583 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:55:20.971343 [info ] [MainThread]: dbt version: 1.9.4
+[0m12:55:20.971874 [info ] [MainThread]: python version: 3.13.2
+[0m12:55:20.972171 [info ] [MainThread]: python path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Scripts\python.exe
+[0m12:55:20.972422 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:55:21.843848 [info ] [MainThread]: Using profiles dir at C:\Users\oluwa\.dbt
+[0m12:55:21.844435 [info ] [MainThread]: Using profiles.yml file at C:\Users\oluwa\.dbt\profiles.yml
+[0m12:55:21.844717 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml
+[0m12:55:21.845019 [info ] [MainThread]: adapter type: bigquery
+[0m12:55:21.845269 [info ] [MainThread]: adapter version: 1.9.1
+[0m12:55:21.845640 [info ] [MainThread]: Configuration:
+[0m12:55:21.845940 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:55:21.846239 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:55:21.846502 [info ] [MainThread]: Required dependencies:
+[0m12:55:21.846816 [debug] [MainThread]: Executing "git --help"
+[0m12:55:21.882029 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:55:21.882591 [debug] [MainThread]: STDERR: "b''"
+[0m12:55:21.882964 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:55:21.883391 [info ] [MainThread]: Connection:
+[0m12:55:21.883859 [info ] [MainThread]:   method: service-account
+[0m12:55:21.884343 [info ] [MainThread]:   database: data-stream-pipeline
+[0m12:55:21.884731 [info ] [MainThread]:   execution_project: data-stream-pipeline
+[0m12:55:21.885124 [info ] [MainThread]:   schema: election_schema
+[0m12:55:21.885427 [info ] [MainThread]:   location: US
+[0m12:55:21.885722 [info ] [MainThread]:   priority: interactive
+[0m12:55:21.886059 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m12:55:21.886395 [info ] [MainThread]:   impersonate_service_account: None
+[0m12:55:21.886701 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m12:55:21.886958 [info ] [MainThread]:   job_retries: 1
+[0m12:55:21.887274 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m12:55:21.887651 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m12:55:21.887909 [info ] [MainThread]:   timeout_seconds: 300
+[0m12:55:21.888196 [info ] [MainThread]:   client_id: None
+[0m12:55:21.888551 [info ] [MainThread]:   token_uri: None
+[0m12:55:21.888800 [info ] [MainThread]:   dataproc_region: None
+[0m12:55:21.889050 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m12:55:21.889281 [info ] [MainThread]:   gcs_bucket: None
+[0m12:55:21.889500 [info ] [MainThread]:   dataproc_batch: None
+[0m12:55:21.889998 [info ] [MainThread]: Registered adapter: bigquery=1.9.1
+[0m12:55:22.193371 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m12:55:22.194051 [debug] [MainThread]: On debug: select 1 as id
+[0m12:55:22.194315 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:55:23.701341 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-stream-pipeline&j=bq:US:d36118f5-182f-4321-a86b-10c6cc1d4e76&page=queryresults
+[0m12:55:27.942732 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:55:27.943314 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:55:27.943632 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml> not found
+
+[0m12:55:27.944975 [debug] [MainThread]: Command `dbt debug` failed at 12:55:27.944740 after 7.16 seconds
+[0m12:55:27.945469 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:55:27.945977 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E51C31DF30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E51C334EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E51C4185A0>]}
+[0m12:55:27.946511 [debug] [MainThread]: Flushing usage events
+[0m12:55:28.229463 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:57:03.189205 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A031CABA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A00EAA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A0417BED0>]}
+
+
+============================== 12:57:03.193172 | 62cd7d39-486f-444b-88d0-a4dde6e42a18 ==============================
+[0m12:57:03.193172 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:57:03.193769 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:57:03.212050 [info ] [MainThread]: dbt version: 1.9.4
+[0m12:57:03.212608 [info ] [MainThread]: python version: 3.13.2
+[0m12:57:03.212908 [info ] [MainThread]: python path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Scripts\python.exe
+[0m12:57:03.213170 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:57:04.071197 [info ] [MainThread]: Using profiles dir at C:\Users\oluwa\.dbt
+[0m12:57:04.071808 [info ] [MainThread]: Using profiles.yml file at C:\Users\oluwa\.dbt\profiles.yml
+[0m12:57:04.072168 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml
+[0m12:57:04.072465 [info ] [MainThread]: adapter type: bigquery
+[0m12:57:04.072730 [info ] [MainThread]: adapter version: 1.9.1
+[0m12:57:04.073111 [info ] [MainThread]: Configuration:
+[0m12:57:04.073510 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:57:04.073876 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:57:04.074181 [info ] [MainThread]: Required dependencies:
+[0m12:57:04.074507 [debug] [MainThread]: Executing "git --help"
+[0m12:57:04.104024 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:57:04.104775 [debug] [MainThread]: STDERR: "b''"
+[0m12:57:04.105318 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:57:04.105818 [info ] [MainThread]: Connection:
+[0m12:57:04.106169 [info ] [MainThread]:   method: service-account
+[0m12:57:04.106474 [info ] [MainThread]:   database: data-stream-pipeline
+[0m12:57:04.106775 [info ] [MainThread]:   execution_project: data-stream-pipeline
+[0m12:57:04.107093 [info ] [MainThread]:   schema: election_schema
+[0m12:57:04.107391 [info ] [MainThread]:   location: US
+[0m12:57:04.107685 [info ] [MainThread]:   priority: interactive
+[0m12:57:04.107982 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m12:57:04.108251 [info ] [MainThread]:   impersonate_service_account: None
+[0m12:57:04.108528 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m12:57:04.108777 [info ] [MainThread]:   job_retries: 1
+[0m12:57:04.109009 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m12:57:04.109239 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m12:57:04.109464 [info ] [MainThread]:   timeout_seconds: 300
+[0m12:57:04.109976 [info ] [MainThread]:   client_id: None
+[0m12:57:04.110295 [info ] [MainThread]:   token_uri: None
+[0m12:57:04.110597 [info ] [MainThread]:   dataproc_region: None
+[0m12:57:04.110853 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m12:57:04.111170 [info ] [MainThread]:   gcs_bucket: None
+[0m12:57:04.111460 [info ] [MainThread]:   dataproc_batch: None
+[0m12:57:04.111985 [info ] [MainThread]: Registered adapter: bigquery=1.9.1
+[0m12:57:04.415103 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m12:57:04.415673 [debug] [MainThread]: On debug: select 1 as id
+[0m12:57:04.416091 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:57:05.637692 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-stream-pipeline&j=bq:US:457e9783-e7b5-4429-bf98-fad98576a4ef&page=queryresults
+[0m12:57:06.055589 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:57:06.056331 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:57:06.056747 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml> not found
+
+[0m12:57:06.057676 [debug] [MainThread]: Command `dbt debug` failed at 12:57:06.057555 after 3.02 seconds
+[0m12:57:06.057945 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:57:06.058251 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A32539350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A32554EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021A326385A0>]}
+[0m12:57:06.058519 [debug] [MainThread]: Flushing usage events
+[0m12:57:06.332109 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:59:00.533820 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C084C36BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C0828FA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C085BEBED0>]}
+
+
+============================== 12:59:00.537624 | 3b7a152e-66ed-41a8-8be8-f444dd5aab64 ==============================
+[0m12:59:00.537624 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:59:00.538294 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init data_stream_pipeline_dbt', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:59:00.556877 [info ] [MainThread]: A project called data_stream_pipeline_dbt already exists here.
+[0m12:59:00.558089 [debug] [MainThread]: Command `dbt init` succeeded at 12:59:00.557951 after 0.18 seconds
+[0m12:59:00.558401 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C085C355B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C085C7D6D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001C085A338A0>]}
+[0m12:59:00.558701 [debug] [MainThread]: Flushing usage events
+[0m12:59:00.831920 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:59:06.711320 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E7FEFABA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E7DE0A990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E0111BED0>]}
+
+
+============================== 12:59:06.717038 | 168ffd0e-d90c-45f0-aa7a-e36cfddd8556 ==============================
+[0m12:59:06.717038 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:59:06.717610 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:59:06.737105 [info ] [MainThread]: dbt version: 1.9.4
+[0m12:59:06.737638 [info ] [MainThread]: python version: 3.13.2
+[0m12:59:06.737979 [info ] [MainThread]: python path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Scripts\python.exe
+[0m12:59:06.738261 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:59:07.658388 [info ] [MainThread]: Using profiles dir at C:\Users\oluwa\.dbt
+[0m12:59:07.659028 [info ] [MainThread]: Using profiles.yml file at C:\Users\oluwa\.dbt\profiles.yml
+[0m12:59:07.659366 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml
+[0m12:59:07.659672 [info ] [MainThread]: adapter type: bigquery
+[0m12:59:07.659916 [info ] [MainThread]: adapter version: 1.9.1
+[0m12:59:07.660410 [info ] [MainThread]: Configuration:
+[0m12:59:07.660702 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:59:07.660948 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:59:07.661221 [info ] [MainThread]: Required dependencies:
+[0m12:59:07.661554 [debug] [MainThread]: Executing "git --help"
+[0m12:59:07.691486 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:59:07.691959 [debug] [MainThread]: STDERR: "b''"
+[0m12:59:07.692266 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:59:07.692846 [info ] [MainThread]: Connection:
+[0m12:59:07.693286 [info ] [MainThread]:   method: service-account
+[0m12:59:07.693698 [info ] [MainThread]:   database: data-stream-pipeline
+[0m12:59:07.693992 [info ] [MainThread]:   execution_project: data-stream-pipeline
+[0m12:59:07.694291 [info ] [MainThread]:   schema: election_schema
+[0m12:59:07.694560 [info ] [MainThread]:   location: US
+[0m12:59:07.694874 [info ] [MainThread]:   priority: interactive
+[0m12:59:07.695180 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m12:59:07.695419 [info ] [MainThread]:   impersonate_service_account: None
+[0m12:59:07.695729 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m12:59:07.695967 [info ] [MainThread]:   job_retries: 1
+[0m12:59:07.696196 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m12:59:07.696484 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m12:59:07.696854 [info ] [MainThread]:   timeout_seconds: 300
+[0m12:59:07.697133 [info ] [MainThread]:   client_id: None
+[0m12:59:07.697368 [info ] [MainThread]:   token_uri: None
+[0m12:59:07.697772 [info ] [MainThread]:   dataproc_region: None
+[0m12:59:07.698093 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m12:59:07.698435 [info ] [MainThread]:   gcs_bucket: None
+[0m12:59:07.698749 [info ] [MainThread]:   dataproc_batch: None
+[0m12:59:07.699262 [info ] [MainThread]: Registered adapter: bigquery=1.9.1
+[0m12:59:08.004236 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m12:59:08.004573 [debug] [MainThread]: On debug: select 1 as id
+[0m12:59:08.004790 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:59:08.722141 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-stream-pipeline&j=bq:US:c0f0f0a5-43cd-4379-b5a8-a7d7058cd414&page=queryresults
+[0m12:59:09.105799 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:59:09.106617 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:59:09.107420 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml> not found
+
+[0m12:59:09.108997 [debug] [MainThread]: Command `dbt debug` failed at 12:59:09.108771 after 2.53 seconds
+[0m12:59:09.109527 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:59:09.110021 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E2F499350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E2F4B8EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000011E2F59C5A0>]}
+[0m12:59:09.110571 [debug] [MainThread]: Flushing usage events
+[0m12:59:09.320499 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:03:35.618611 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002816FAF6BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002816D7CA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028170AABED0>]}
+
+
+============================== 13:03:35.622505 | 2181b296-0e67-458e-839d-e189cb5ac32e ==============================
+[0m13:03:35.622505 [info ] [MainThread]: Running with dbt=1.9.4
+[0m13:03:35.623063 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m13:03:35.642063 [info ] [MainThread]: dbt version: 1.9.4
+[0m13:03:35.642701 [info ] [MainThread]: python version: 3.13.2
+[0m13:03:35.643123 [info ] [MainThread]: python path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Scripts\python.exe
+[0m13:03:35.643561 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m13:03:36.593466 [info ] [MainThread]: Using profiles dir at C:\Users\oluwa\.dbt
+[0m13:03:36.594254 [info ] [MainThread]: Using profiles.yml file at C:\Users\oluwa\.dbt\profiles.yml
+[0m13:03:36.594532 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml
+[0m13:03:36.594880 [info ] [MainThread]: adapter type: bigquery
+[0m13:03:36.595225 [info ] [MainThread]: adapter version: 1.9.1
+[0m13:03:36.595604 [info ] [MainThread]: Configuration:
+[0m13:03:36.595904 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:03:36.596163 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m13:03:36.596447 [info ] [MainThread]: Required dependencies:
+[0m13:03:36.596706 [debug] [MainThread]: Executing "git --help"
+[0m13:03:36.627908 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:03:36.628390 [debug] [MainThread]: STDERR: "b''"
+[0m13:03:36.628798 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:03:36.629098 [info ] [MainThread]: Connection:
+[0m13:03:36.629411 [info ] [MainThread]:   method: service-account
+[0m13:03:36.629669 [info ] [MainThread]:   database: data-stream-pipeline
+[0m13:03:36.629964 [info ] [MainThread]:   execution_project: data-stream-pipeline
+[0m13:03:36.630533 [info ] [MainThread]:   schema: election_schema
+[0m13:03:36.630966 [info ] [MainThread]:   location: US
+[0m13:03:36.631376 [info ] [MainThread]:   priority: interactive
+[0m13:03:36.631645 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m13:03:36.631991 [info ] [MainThread]:   impersonate_service_account: None
+[0m13:03:36.632328 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m13:03:36.632761 [info ] [MainThread]:   job_retries: 1
+[0m13:03:36.633148 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m13:03:36.633465 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m13:03:36.633734 [info ] [MainThread]:   timeout_seconds: 300
+[0m13:03:36.634188 [info ] [MainThread]:   client_id: None
+[0m13:03:36.634525 [info ] [MainThread]:   token_uri: None
+[0m13:03:36.634870 [info ] [MainThread]:   dataproc_region: None
+[0m13:03:36.635198 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m13:03:36.635514 [info ] [MainThread]:   gcs_bucket: None
+[0m13:03:36.635841 [info ] [MainThread]:   dataproc_batch: None
+[0m13:03:36.636632 [info ] [MainThread]: Registered adapter: bigquery=1.9.1
+[0m13:03:36.939380 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m13:03:36.939728 [debug] [MainThread]: On debug: select 1 as id
+[0m13:03:36.939947 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:03:37.724486 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-stream-pipeline&j=bq:US:825d7a77-ce22-455e-8d9b-6622330998a7&page=queryresults
+[0m13:03:38.195721 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:03:38.196503 [info ] [MainThread]: [31m1 check failed:[0m
+[0m13:03:38.197116 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml> not found
+
+[0m13:03:38.198507 [debug] [MainThread]: Command `dbt debug` failed at 13:03:38.198288 after 2.75 seconds
+[0m13:03:38.199190 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:03:38.199779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028120A59E00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028120A78EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028120B5C5A0>]}
+[0m13:03:38.200220 [debug] [MainThread]: Flushing usage events
+[0m13:03:38.484737 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:05:02.660900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267C5A86BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267C3752990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267C6A3BED0>]}
+
+
+============================== 13:05:02.666338 | df0b1b9f-ea30-4b6c-923d-102b6f0c461c ==============================
+[0m13:05:02.666338 [info ] [MainThread]: Running with dbt=1.9.4
+[0m13:05:02.666981 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt init data_stream_pipeline_dbt', 'send_anonymous_usage_stats': 'True'}
+[0m13:05:02.689573 [debug] [MainThread]: Starter project path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Lib\site-packages\dbt\include\starter_project
+[0m13:05:02.705077 [info ] [MainThread]: 
+Your new dbt project "data_stream_pipeline_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m13:05:02.706370 [info ] [MainThread]: Setting up your profile.
+[0m13:06:26.999890 [info ] [MainThread]: Profile data_stream_pipeline_dbt written to C:\Users\oluwa\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m13:06:27.001122 [debug] [MainThread]: Command `dbt init` succeeded at 13:06:27.001004 after 84.50 seconds
+[0m13:06:27.001437 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267F4C67E10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267C6ACE450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000267F4C7A690>]}
+[0m13:06:27.001727 [debug] [MainThread]: Flushing usage events
+[0m13:06:27.277255 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:06:34.248537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000272F083ABA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000272EE4FA990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000272F17EBED0>]}
+
+
+============================== 13:06:34.253107 | 36e01ec0-3095-48bb-899d-b35730d71da1 ==============================
+[0m13:06:34.253107 [info ] [MainThread]: Running with dbt=1.9.4
+[0m13:06:34.253680 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\oluwa\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m13:06:34.275125 [info ] [MainThread]: dbt version: 1.9.4
+[0m13:06:34.275650 [info ] [MainThread]: python version: 3.13.2
+[0m13:06:34.275974 [info ] [MainThread]: python path: C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\.venv\Scripts\python.exe
+[0m13:06:34.276240 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m13:06:35.191508 [info ] [MainThread]: Using profiles dir at C:\Users\oluwa\.dbt
+[0m13:06:35.192036 [info ] [MainThread]: Using profiles.yml file at C:\Users\oluwa\.dbt\profiles.yml
+[0m13:06:35.192547 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml
+[0m13:06:35.193094 [info ] [MainThread]: adapter type: bigquery
+[0m13:06:35.193329 [info ] [MainThread]: adapter version: 1.9.1
+[0m13:06:35.193645 [info ] [MainThread]: Configuration:
+[0m13:06:35.193888 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:06:35.194215 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m13:06:35.194474 [info ] [MainThread]: Required dependencies:
+[0m13:06:35.194785 [debug] [MainThread]: Executing "git --help"
+[0m13:06:35.228985 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:06:35.229438 [debug] [MainThread]: STDERR: "b''"
+[0m13:06:35.229748 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:06:35.230175 [info ] [MainThread]: Connection:
+[0m13:06:35.230501 [info ] [MainThread]:   method: service-account
+[0m13:06:35.230847 [info ] [MainThread]:   database: data-stream-pipeline
+[0m13:06:35.231078 [info ] [MainThread]:   execution_project: data-stream-pipeline
+[0m13:06:35.231326 [info ] [MainThread]:   schema: election_schema
+[0m13:06:35.231541 [info ] [MainThread]:   location: US
+[0m13:06:35.231936 [info ] [MainThread]:   priority: interactive
+[0m13:06:35.232228 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m13:06:35.232508 [info ] [MainThread]:   impersonate_service_account: None
+[0m13:06:35.232763 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m13:06:35.232991 [info ] [MainThread]:   job_retries: 1
+[0m13:06:35.233249 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m13:06:35.233597 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m13:06:35.233878 [info ] [MainThread]:   timeout_seconds: 300
+[0m13:06:35.234151 [info ] [MainThread]:   client_id: None
+[0m13:06:35.234393 [info ] [MainThread]:   token_uri: None
+[0m13:06:35.234666 [info ] [MainThread]:   dataproc_region: None
+[0m13:06:35.234926 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m13:06:35.235263 [info ] [MainThread]:   gcs_bucket: None
+[0m13:06:35.235557 [info ] [MainThread]:   dataproc_batch: None
+[0m13:06:35.236108 [info ] [MainThread]: Registered adapter: bigquery=1.9.1
+[0m13:06:35.531231 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m13:06:35.531590 [debug] [MainThread]: On debug: select 1 as id
+[0m13:06:35.531832 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:06:36.331663 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-stream-pipeline&j=bq:US:f125cca8-f06f-416f-a8af-ae03eb2672e9&page=queryresults
+[0m13:06:36.758268 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:06:36.758842 [info ] [MainThread]: [31m1 check failed:[0m
+[0m13:06:36.759163 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\dbt_project.yml> not found
+
+[0m13:06:36.759931 [debug] [MainThread]: Command `dbt debug` failed at 13:06:36.759822 after 2.71 seconds
+[0m13:06:36.760195 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:06:36.760444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002729FC19F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002729FC38EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002729FD1C5A0>]}
+[0m13:06:36.760719 [debug] [MainThread]: Flushing usage events
+[0m13:06:36.994527 [debug] [MainThread]: An error was encountered while trying to flush usage events

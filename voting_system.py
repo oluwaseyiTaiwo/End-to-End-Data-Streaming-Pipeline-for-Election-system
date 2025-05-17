@@ -19,6 +19,14 @@ producer = SerializingProducer({'bootstrap.servers': 'localhost:9092'})
 if __name__ == "__main__":
     # Connect to the PostgreSQL database
     database_connection = psycopg2.connect('host=localhost dbname=Election_Database user=postgres password=postgres')
+        # Check if the connection was successful
+    if database_connection.status != 1:
+        print("Failed to connect to the database.")
+        exit(1)
+    else:
+        print("Connected to the database successfully.")
+        
+    # Create a cursor to execute SQL queries
     cursor = database_connection.cursor()
 
     # Fetch voter details from the database
@@ -29,8 +37,7 @@ if __name__ == "__main__":
     # Check if the candidate details were fetched successfully
     if len(candidate) == 0:
         raise Exception("No candidate details found in the database.")
-    else:
-        print(candidate)
+    
 
     consumer.subscribe(['voter_registration'])
 
@@ -78,7 +85,7 @@ if __name__ == "__main__":
                     continue
 
                 
-                vote = voter | chosen_candidate | {"Voting_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'vote': 1}
+                vote = voter | chosen_candidate | {"voting_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'), 'vote': 1}
                 
                 # Insert the vote into the database and produce it to Kafka
                 try:
@@ -87,7 +94,7 @@ if __name__ == "__main__":
                     cursor.execute(
                         """INSERT INTO VOTES_REGISTRATION (voter_id, candidate_id, voting_time, vote) 
                         VALUES (%s, %s, %s, %s)""",
-                        (vote["voter_id"], vote["candidate_id"], vote["Voting_time"], vote["vote"])
+                        (vote["voter_id"], vote["candidate_id"], vote["voting_time"], vote["vote"])
                     )
                     # Commit the transaction
                     database_connection.commit()
