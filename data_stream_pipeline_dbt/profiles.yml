@@ -1,0 +1,13 @@
+data_stream_pipeline_dbt:
+  outputs:
+    dev:
+      dataset: election_schema
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /keys/gcp_key.json        # ← FIXED PATH
+      method: service-account
+      priority: interactive
+      project: data-stream-pipeline
+      threads: 4
+      type: bigquery
+  target: dev

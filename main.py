@@ -147,7 +147,17 @@ def delivery_report(err, msg):
     else:
         print(f"Message delivered to {msg.topic()} [{msg.partition()}]")
 
-    
+def voter_id_exists(voter_id, cursor):
+    cursor.execute("SELECT 1 FROM VOTER_REGISTRATION WHERE voter_id = %s", (voter_id,))
+    return cursor.fetchone() is not None
+
+def generate_unique_voter(cursor):
+    while True:
+        voter_data = generate_voter_details()
+        if not voter_id_exists(voter_data["voter_id"], cursor):
+            return voter_data
+
+
 if __name__ == "__main__":
     # Initialize the Kafka producer
     producer = SerializingProducer({'bootstrap.servers': 'localhost:9092'})
@@ -183,8 +193,8 @@ if __name__ == "__main__":
             print("Candidate details already exist in the database.")
         
 
-        for x in range(100):
-            voter_data = generate_voter_details()
+        for x in range(1000):
+            voter_data = generate_unique_voter(cursor)
             # Insert voter details into the database
             inser_voter_details(database_connection, cursor, voter_data)
             print(f"Voter {x+1} details inserted successfully.")

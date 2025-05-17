@@ -1,2 +1,37 @@
 .env
-GCP
+GCP/
+# GCP service account key
+GCP/data-stream-pipeline-*.json
+
+# Python virtual environments
+.venv/
+__pycache__/
+*.pyc
+
+# Airflow metadata
+airflow_home/
+airflow.cfg
+unittests.cfg
+
+# Kafka and Spark temp/log files (if any)
+logs/
+*.log
+
+# Checkpoint and output directories
+checkpoints/
+spark-warehouse/
+metastore_db/
+
+# IDE/editor junk
+.vscode/
+*.iml
+.idea/
+
+# Docker stuff
+*.db
+*.pid
+*.sock
+
+# OS-specific
+.DS_Store
+Thumbs.db

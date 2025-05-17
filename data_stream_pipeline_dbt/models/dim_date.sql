@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='incremental', unique_key='date_key', tags=['incremental']) }}
 
 WITH calendar AS (
   SELECT
@@ -31,8 +31,13 @@ WITH calendar AS (
     EXTRACT(WEEK FROM d) AS week_number,
     DATE_SUB(d, INTERVAL EXTRACT(DAYOFWEEK FROM d) - 1 DAY) AS week_start,
     DATE_ADD(d, INTERVAL 7 - EXTRACT(DAYOFWEEK FROM d) DAY) AS week_end
-  FROM UNNEST(GENERATE_DATE_ARRAY(DATE(2020, 1, 1), DATE(2025, 12, 31))) AS d
+  FROM UNNEST(
+    GENERATE_DATE_ARRAY(DATE(2020, 1, 1), DATE_ADD(CURRENT_DATE(), INTERVAL 2 YEAR))
+  ) AS d
 )
 
 SELECT *
 FROM calendar
+{% if is_incremental() %}
+WHERE date_key > (SELECT MAX(date_key) FROM {{ this }})
+{% endif %}

@@ -1,42 +1,47 @@
-from airflow import DAG
+from airflow.decorators import dag
 from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
+from datetime import timedelta
 
-DEFAULT_ARGS = {"owner": "pipeline", "retries": 0}
+DEFAULT_ARGS = {
+    "owner": "pipeline",
+    "retries": 0,
+    "retry_delay": timedelta(minutes=1),
+}
 
-with DAG(
+@dag(
     dag_id="dbt_refresh",
     default_args=DEFAULT_ARGS,
     start_date=days_ago(1),
-    schedule_interval="*/1 * * * *",      # every 1 minutes
+    schedule_interval="*/1 * * * *",  # runs every minute
     catchup=False,
     tags=["dbt", "bigquery"],
-) as dag:
+)
+def dbt_refresh():
+    env_vars = {
+        "PATH": "/home/airflow/.local/bin:/usr/local/bin:/usr/bin:/bin",  # Ensure dbt is accessible
+        "GOOGLE_APPLICATION_CREDENTIALS": "/keys/gcp_key.json",
+        "DBT_PROFILES_DIR": "/opt/airflow/dbt",
+    }
 
-    # 1) Run only incremental models (tags keep it fast)
-    dbt_run = BashOperator(
-        task_id="dbt_run_incremental",
+    dbt_run_incremental = BashOperator(
+        task_id="run_dbt_incremental_models",
         bash_command="""
             cd /opt/airflow/dbt && \
             dbt run --select tag:incremental --profiles-dir .
         """,
-        env={
-            "GOOGLE_APPLICATION_CREDENTIALS": "/keys/gcp_key.json",
-            "DBT_PROFILES_DIR": "/opt/airflow/dbt",
-        },
+        env=env_vars,
     )
 
-    # 2) Optionally run tests on the same subset
-    dbt_test = BashOperator(
-        task_id="dbt_test_incremental",
+    dbt_test_incremental = BashOperator(
+        task_id="test_dbt_incremental_models",
         bash_command="""
             cd /opt/airflow/dbt && \
             dbt test --select tag:incremental --profiles-dir .
         """,
-        env={
-            "GOOGLE_APPLICATION_CREDENTIALS": "/keys/gcp_key.json",
-            "DBT_PROFILES_DIR": "/opt/airflow/dbt",
-        },
+        env=env_vars,
     )
 
-    dbt_run >> dbt_test        # test only after a successful run
+    dbt_run_incremental >> dbt_test_incremental
+
+dbt_refresh()

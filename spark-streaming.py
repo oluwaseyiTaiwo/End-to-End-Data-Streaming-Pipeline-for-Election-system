@@ -19,6 +19,9 @@ if __name__ == "__main__":
       .config("spark.sql.adaptive.enabled", "false")
       .getOrCreate()
 )
+    # Set the log level to ERROR to reduce verbosity
+    #spark.sparkContext.setLogLevel("ERROR")
+    spark.sparkContext.setLogLevel("WARN")
     
  
     #deserialize the data from the kafka topic votes_topic
@@ -71,10 +74,12 @@ if __name__ == "__main__":
             .save())
 
 
-    (votes_df
+    query=(votes_df
     .writeStream
     .outputMode("append")
     .foreachBatch(write_to_bq)
-    .option("checkpointLocation", r"C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\checkpoints\checkpoint1")
+    .option("checkpointLocation", r"C:\Users\oluwa\Desktop\Project\End-to-End-Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\checkpoints\checkpoint1")
     .start()
-    .awaitTermination())
+   )
+    
+    query.awaitTermination()

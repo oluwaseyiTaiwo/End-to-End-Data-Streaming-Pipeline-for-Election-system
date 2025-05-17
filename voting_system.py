@@ -45,7 +45,7 @@ if __name__ == "__main__":
     try:
         while True:
             # Poll for a message from the Kafka topic
-            message = consumer.poll(1.0)  # Wait for a message for 1 second
+            message = consumer.poll(5.0)  # Wait for a message for 1 second
             # If no message is received, continue polling
             if message is None:
                 continue
@@ -115,7 +115,7 @@ if __name__ == "__main__":
                 except Exception as e:
                     print(f"Error inserting vote for voter {vote['voter_id']}: {e}")
 
-            time.sleep(1)
+            time.sleep(3) # Sleep for 3 seconds before processing the next vote
     except Exception as e:
         print(f"Error: {e}")
 

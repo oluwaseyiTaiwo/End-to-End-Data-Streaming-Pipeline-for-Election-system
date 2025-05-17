@@ -1,10 +1,18 @@
 # Dockerfile.airflow-dbt
 FROM apache/airflow:2.9.1-python3.10
 
+# Install dbt and dependencies
 RUN pip install --no-cache-dir \
-      dbt-bigquery==1.7.* \
-      google-cloud-bigquery \
-      google-auth \
-      google-cloud-storage
+    dbt-bigquery==1.7.* \
+    google-cloud-bigquery \
+    google-auth \
+    google-cloud-storage
 
+# Make sure dbt is available to subprocesses (like BashOperator)
 ENV PATH="/root/.local/bin:${PATH}"
+
+# Copy your entrypoint with correct permission
+COPY --chmod=755 entrypoint.sh /entrypoint.sh
+
+# Use the custom entrypoint
+ENTRYPOINT ["/entrypoint.sh"]

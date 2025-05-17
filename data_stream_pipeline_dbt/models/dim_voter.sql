@@ -1,3 +1,4 @@
+-- models/dim_voter.sql
 {{ config(materialized='incremental', unique_key='voter_id', tags=['incremental']) }}
 
 SELECT
@@ -17,8 +18,8 @@ SELECT
   cell_number,
   picture,
   registered_age,
-  voting_time  -- include this if using for incremental logic
-FROM `{{ target.project }}.raw_data.raw_vote_events`
+  voting_time
+FROM {{ source('raw_data', 'raw_vote_events') }}
 {% if is_incremental() %}
 WHERE voting_time > (
     SELECT COALESCE(MAX(voting_time), '2020-12-30')
