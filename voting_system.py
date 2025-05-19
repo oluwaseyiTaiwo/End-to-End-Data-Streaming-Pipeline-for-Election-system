@@ -40,10 +40,11 @@ if __name__ == "__main__":
     
 
     consumer.subscribe(['voter_registration'])
-
+    voter_no=0
     # Poll for messages from the Kafka topic
     try:
         while True:
+            voter_no += 1
             # Poll for a message from the Kafka topic
             message = consumer.poll(5.0)  # Wait for a message for 1 second
             # If no message is received, continue polling
@@ -64,7 +65,7 @@ if __name__ == "__main__":
                 chosen_candidate = random.choice(candidate)
 
                 # Check if the voter has already voted
-                cursor.execute("SELECT COUNT(*) FROM VOTES_REGISTRATION WHERE voter_id = %s", (voter["voter_id"],))
+                cursor.execute("SELECT COUNT(*) FROM VOTES_RECORD WHERE voter_id = %s", (voter["voter_id"],))
                 vote_count = cursor.fetchone()[0]
                 if vote_count > 0:
                     print(f"Voter {voter['voter_id']} has already voted.")
@@ -92,7 +93,7 @@ if __name__ == "__main__":
                     print(f"Vote for voter {vote['voter_id']} is being processed...")
                     # Insert the vote into the database
                     cursor.execute(
-                        """INSERT INTO VOTES_REGISTRATION (voter_id, candidate_id, voting_time, vote) 
+                        """INSERT INTO VOTES_RECORD (voter_id, candidate_id, voting_time, vote) 
                         VALUES (%s, %s, %s, %s)""",
                         (vote["voter_id"], vote["candidate_id"], vote["voting_time"], vote["vote"])
                     )
@@ -110,6 +111,7 @@ if __name__ == "__main__":
                     producer.poll(0)  # Poll the producer to handle delivery reports
                     # Flush the producer to ensure all messages are sent
                     producer.flush()  # Ensure the message is sent to Kafka
+                    print(f"vote for voter {voter_no} has been produced to Kafka.")
                     print(f"Vote for voter {vote['voter_id']} has been successfully inserted into the database and produced to Kafka.")
 
                 except Exception as e:

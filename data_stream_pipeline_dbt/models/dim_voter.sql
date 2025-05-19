@@ -17,7 +17,7 @@ SELECT
   phone_number,
   cell_number,
   picture,
-  registered_age,
+  age,
   voting_time
 FROM {{ source('raw_data', 'raw_vote_events') }}
 {% if is_incremental() %}

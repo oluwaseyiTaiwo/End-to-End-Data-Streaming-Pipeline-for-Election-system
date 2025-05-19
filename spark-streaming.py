@@ -15,7 +15,7 @@ if __name__ == "__main__":
       .master("local[*]")
        .config(
           "spark.jars.packages","org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5,""com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.35.0")
-      .config("spark.jars",r"C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\postgresql-42.7.5.jar")
+      .config("spark.jars",r"C:\Users\oluwa\Desktop\Project\End-to-End-Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\postgresql-42.7.5.jar")
       .config("spark.sql.adaptive.enabled", "false")
       .getOrCreate()
 )
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     StructField("phone_number", StringType(), True),
     StructField("cell_number", StringType(), True),
     StructField("picture", StringType(), True),
-    StructField("registered_age", IntegerType(), True),
+    StructField("age", IntegerType(), True),
     StructField("vote", IntegerType(), True)
 ])
     

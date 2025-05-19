@@ -4,7 +4,7 @@ import random
 from confluent_kafka import SerializingProducer
 from info import parties, bios, platforms
 import json
-random.seed(482)  # Set a seed for reproducibility
+random.seed(42)  # Set a seed for reproducibility
 # Set the base URL for the randomuser.me API
 BASE_URL = 'https://randomuser.me/api/?nat=ca'
 
@@ -26,7 +26,7 @@ def create_table(database_connection, cursor):
                     phone_number VARCHAR(255),
                     cell_number VARCHAR(255),
                     picture TEXT,
-                    registered_age INTEGER)
+                    age INTEGER)
                    """)
     
     cursor.execute("""
@@ -40,7 +40,7 @@ def create_table(database_connection, cursor):
                    """)
 
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS VOTES_REGISTRATION (
+        CREATE TABLE IF NOT EXISTS VOTES_RECORD (
             voter_id VARCHAR(255) UNIQUE,
             candidate_id VARCHAR(255),
             voting_time TIMESTAMP,
@@ -112,7 +112,7 @@ def generate_voter_details():
         "phone_number": voter["phone"],
         "cell_number": voter["cell"],
         "picture": voter["picture"]["large"],
-        "registered_age": voter["registered"]["age"]
+        "age": voter["dob"]["age"]
     }
 
 
@@ -122,13 +122,13 @@ def inser_voter_details(database_connection, cursor, voter_data):
     cursor.execute("""
         INSERT INTO VOTER_REGISTRATION(voter_id, voter_name, date_of_birth,
                    gender,nationality,registration_number,address_street,address_city,
-                   address_state,address_country,address_postcode,email,phone_number,cell_number,picture,registered_age)
+                   address_state,address_country,address_postcode,email,phone_number,cell_number,picture,age)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """, (voter_data["voter_id"], voter_data["voter_name"], voter_data["date_of_birth"], voter_data["gender"], 
           voter_data["nationality"], voter_data["registration_number"], voter_data["address"]["street"], 
           voter_data["address"]["city"], voter_data["address"]["state"], voter_data["address"]["country"], 
           voter_data["address"]["postcode"], voter_data["email"], voter_data["phone_number"], 
-          voter_data["cell_number"], voter_data["picture"], voter_data["registered_age"]))
+          voter_data["cell_number"], voter_data["picture"], voter_data["age"]))
     database_connection.commit()
                
 
@@ -193,7 +193,7 @@ if __name__ == "__main__":
             print("Candidate details already exist in the database.")
         
 
-        for x in range(1000):
+        for x in range(13):
             voter_data = generate_unique_voter(cursor)
             # Insert voter details into the database
             inser_voter_details(database_connection, cursor, voter_data)
