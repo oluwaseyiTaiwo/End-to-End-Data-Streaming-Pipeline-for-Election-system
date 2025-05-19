@@ -193,7 +193,7 @@ if __name__ == "__main__":
             print("Candidate details already exist in the database.")
         
 
-        for x in range(13):
+        for x in range(1000):
             voter_data = generate_unique_voter(cursor)
             # Insert voter details into the database
             inser_voter_details(database_connection, cursor, voter_data)

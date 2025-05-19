@@ -1,24 +1,11 @@
 pip install requests psycopg2-binary confluent_kafka simplejson requests pyspark dbt-bigquery
-pip install apache-airflow --no-cache-dir
-wsl --install
-
-#$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\oluwa\Desktop\Project\End-to-End Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\gcp_key.json"
-# 
-#docker exec -it airflow airflow users reset-password --username admin --password admin123
 
 
-$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\oluwa\Desktop\Project\End-to-End-Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\GCP\data-stream-pipeline-8625d5f3a48e.json"
-echo $env:GOOGLE_APPLICATION_CREDENTIALS
-C:\Users\oluwa\Desktop\Project\End-to-End-Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\GCP\data-stream-pipeline-8625d5f3a48e.json    
 
-
-docker build -f Dockerfile.airflow-dbt -t airflow-dbt:latest .
-docker build -f Dockerfile.airflow-dbt -t airflow-dbt:latest .                                                                                                                                        
-docker-compose up -d --build airflow-webserver airflow-scheduler
-docker-compose -f docker-compose.yml up -d --build airflow-webserver airflow-scheduler
-
-docker exec -it airflow airflow dags trigger dbt_refresh        
-if i wanted to add delays to time for each data sdetbeong produced consumed and just so thecode does finish to quick who do I goabout I                                                                
-
-
-(Get-Content -Raw .\entrypoint.sh) -replace "`r`n", "`n" | Set-Content -Encoding UTF8 -NoNewline .\entrypoint.sh
+# pip install apache-airflow --no-cache-dir
+# wsl --install
+# $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\oluwa\Desktop\Project\End-to-End-Data-Pipeline-for-Election-Voting-system-kafka-spark-postgresSQL-viz\GCP\data-stream-pipeline-8625d5f3a48e.json"
+# echo $env:GOOGLE_APPLICATION_CREDENTIALS
+# docker build -f Dockerfile.airflow-dbt -t airflow-dbt:latest .                                                                                                                                       
+# docker-compose up -d --build airflow-webserver airflow-scheduler
+# docker-compose -f docker-compose.yml up -d --build airflow-webserver airflow-scheduler

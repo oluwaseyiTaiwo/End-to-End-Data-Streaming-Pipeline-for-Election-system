@@ -13,7 +13,7 @@ DEFAULT_ARGS = {
     dag_id="dbt_refresh",
     default_args=DEFAULT_ARGS,
     start_date=days_ago(1),
-    schedule_interval="*/5 * * * *",  # runs every minute
+    schedule_interval="*/5 * * * *",  # runs every 5 minute
     catchup=False,
     tags=["dbt", "bigquery"],
 )
